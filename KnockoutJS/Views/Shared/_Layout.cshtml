@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="css" href="~/Content/Site.css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <h1 style="text-align: center; color:#fff;">Enter an item into an item list!</h1>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="container body-content" style="text-align:center" style="background-color:antiquewhite">
+        <form data-bind="submit: addItem">
+            New item:
+            <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+            <button type="submit" data-bind="enable: itemToAdd().length > 0">Add</button>
+            <p>Your items:</p>
+
+            <select class="displayList" width="100%" style="width:100%;" multiple="multiple" data-bind="options: items">
+                    
+            </select>
+
+            
+        </form>
+        <br />
+    </div>
+
+
+
+    @Scripts.Render("~/Scripts/knockout-3.4.2.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
